@@ -183,6 +183,5 @@ This project is for educational and demonstration purposes.
 ---
 
 ## ✍️ Author
-Eslam El Sharkawy
-**Seif Osama**
+**Eslam El Sharkawy**
 DevOps / Cloud Engineer
