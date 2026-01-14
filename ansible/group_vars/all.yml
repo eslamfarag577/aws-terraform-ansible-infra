@@ -1,0 +1,18 @@
+---
+ansible_user: ubuntu
+ansible_port: 22
+ansible_become: true
+ansible_become_method: sudo
+
+timezone: Africa/Cairo
+
+app_port: 8080
+app_image: ghcr.io/eslamfarag577/flask-devops-demo:1.0
+
+db_host: terraform.abc123.rds.amazonaws.com
+db_port: 3306
+db_name: terraform
+db_user: eslam
+db_password: asd@123
+
+

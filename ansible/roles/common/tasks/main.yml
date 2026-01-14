@@ -1,0 +1,44 @@
+---
+- name: update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: upgrade all package
+  apt:
+    upgrade: dist
+
+- name: install basic package
+  apt:
+    name:
+      - curl
+      - vim
+      - unzip
+      - htop
+    state: present
+
+- name: create app user
+  user:
+    name: eslam
+    shell: /bin/bash
+    create_home: yes
+
+- name: allow eslam sudo without password
+  copy:
+    dest: /etc/sudoers.d/eslam
+    content: "eslam ALL=(ALL) NOPASSWD:ALL"
+    mode: 0440
+
+- name: disable ssh root login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^permitRootLogin'
+    line: 'permitRootLogin no'
+  notify: restart ssh
+
+- name: disable ssh password authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+  notify: restart ssh

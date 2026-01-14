@@ -1,0 +1,36 @@
+---
+- name: create app directory
+  file:
+    path: /opt/app
+    state: directory
+    owner: eslam
+    group: eslam
+    mode: '0755'
+
+- name: render env file
+  template:
+    src: .env.j2
+    dest: /opt/app/.env
+    owner: eslam
+    group: eslam
+    mode: '0600'
+
+- name: pull app docker image
+  docker_container:
+    name: app
+    image: "{{ app_image  }}"  
+    state: started
+    restart_policy: always
+    env_file: /opt/app/.env
+    ports:
+      - "{{ app_port }}:{{ app_port }}"
+
+
+
+
+
+
+
+
+
+

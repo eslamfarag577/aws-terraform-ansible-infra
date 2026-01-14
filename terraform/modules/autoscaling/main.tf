@@ -9,7 +9,7 @@ resource "aws_launch_template" "template" {
   apt update
   apt install -y ansible git
 
-  sudo ansible-pull \
+  ansible-pull \
     -U https://github.com/yourname/ansible-repo.git \
     -i localhost, \
     site.yml
