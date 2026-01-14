@@ -169,11 +169,11 @@ The application uses environment variables injected via Ansible:
 APP_ENV=prod
 APP_PORT=8080
 
-DB_HOST=your-rds-endpoint
+DB_HOST=*****rds-endpoint
 DB_PORT=5432
-DB_NAME=appdb
-DB_USER=appuser
-DB_PASS=secret
+DB_NAME=terraform
+DB_USER=esla,
+DB_PASS=*******
 ```
 
 ---
